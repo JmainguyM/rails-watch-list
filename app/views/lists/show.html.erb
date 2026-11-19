@@ -1,0 +1,38 @@
+<h1>List of <%= @list.name %></h1>
+
+<%= link_to "retour", lists_path %>
+
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li>
+      <h3><%= bookmark.movie.title %></h3>
+      <p><%= bookmark.movie.overview %></p>
+      <p><strong><%= bookmark.comment %></strong></p>
+      <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit "create a bookmark to this list" %>
+<% end %>
+
+<h3>laissez un commentaire!!</h3>
+<ul>
+  <% @list.reviews.each do |review| %>
+    <li>
+      <h3><%= review.comment %></h3>
+      <p><%= review.rating %></p>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= simple_form_for [@list, @review] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
+  <%= f.submit "leave a review" %>
+<% end %>

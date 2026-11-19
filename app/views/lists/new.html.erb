@@ -1,0 +1,8 @@
+<h1>creating a new list</h1>
+
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "create the list" %>
+<% end %>
+
+<%= link_to "annuler", lists_path %>
