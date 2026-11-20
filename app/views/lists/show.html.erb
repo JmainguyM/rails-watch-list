@@ -2,7 +2,7 @@
 
 <%= link_to "retour", lists_path %>
 <% if @list.photo.attached? %>
-  <div><%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :pad, background: "light-gray" %></div>
+  <div><%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :pad, background: "#f4f4f4" %></div>
 <% end %>
 
 <ul>
