@@ -24,8 +24,8 @@
 <ul>
   <% @list.reviews.each do |review| %>
     <li>
-      <h3><%= review.comment %></h3>
-      <p><%= review.rating %></p>
+      <p><%= review.comment %></p>
+      <p><%= review.rating %>/5</p>
     </li>
   <% end %>
 </ul>
